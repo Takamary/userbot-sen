@@ -1,0 +1,5 @@
+API_ID = ''
+API_HASH = ''
+BOT_TOKEN = ''
+SESSION_NAME = ''
+MODULES_FOLDER = 'modules'
