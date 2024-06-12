@@ -1,4 +1,4 @@
-# modules/server_info.py
+# modules/info.py
 
 import psutil
 import platform
@@ -16,8 +16,9 @@ def get_system_info():
 
     info = (
         f"Система: {uname.system} {uname.release}\n"
-        f"Название узла: master\n"
-        f"Версия: 1.0\n"
+        f"Название узла: {uname.node}\n"
+        f"Версия: {uname.version}\n"
+        f"Машина: {uname.machine}\n"
         f"Процессор: {uname.processor}\n"
         f"Загрузка ЦП: {cpu_usage}%\n"
         f"Всего ОЗУ: {memory_total:.2f} GB\n"
@@ -29,7 +30,7 @@ def get_system_info():
     return info
 
 def register(client, command_registry):
-    command_registry.append('.info - Показать информацию о сервере')
+    command_registry.append('info - .info - Показать информацию о сервере')
 
     @client.on(events.NewMessage(pattern='.info'))
     async def server_info(event):
